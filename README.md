@@ -100,8 +100,6 @@ The success of this task was confirmed by checking the live container output, wh
 
 **📸 Execution Result:**
 
-![Downward API Verification](Screenshot%202026-04-16%20001632.png)
-
 ![Downward API Final Output](Screenshot%202026-04-16%20002501.png)
 
 ---
