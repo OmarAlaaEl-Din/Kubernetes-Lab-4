@@ -15,6 +15,7 @@ To simulate a persistent backend, we prepared the host node by creating a physic
 * [cite_start]**Permissions:** Applied `chmod 644` to ensure the web server has appropriate read access[cite: 7].
 
 **📸 Verification:**
+
 ![Host Setup](Screenshot%202026-04-14%20221308.png)
 
 ---
@@ -27,7 +28,9 @@ We utilized a Manual Storage Class to bind a specific Persistent Volume to a Cla
 * [cite_start]**Binding:** Successfully bound the `nginx-pvc` to the `nginx-pv`[cite: 35, 36, 42].
 
 **📸 Manifest & Binding:**
+
 ![PV PVC Manifest](Screenshot%202026-04-15%20223041.png)
+
 ![Binding Status](Screenshot%202026-04-15%20223040.png)
 
 ---
@@ -40,7 +43,9 @@ The deployment was configured to serve the mounted data with high availability a
 * [cite_start]**Volume Mounting:** Mounted the `nginx-pvc` to `/usr/share/nginx/html` inside the containers[cite: 141, 145].
 
 **📸 Deployment Verification:**
+
 ![Deployment Manifest](Screenshot%202026-04-15%20225918.png)
+
 ![Running Pods](Screenshot%202026-04-15%20225859.png)
 
 ---
@@ -52,6 +57,7 @@ To verify the end-to-end flow, we accessed the running pods to confirm the persi
 * [cite_start]**Result:** The pod successfully displayed the name "Omar Alaa El-Din" retrieved from the persistent host storage[cite: 159].
 
 **📸 Output Verification:**
+
 ![Final Result](Screenshot%202026-04-15%20230433.png)
 
 ---
@@ -66,6 +72,7 @@ To meet the lab requirements, a dedicated Persistent Volume and Claim were creat
 * **Status:** Both resources are successfully **Bound**, as shown in the cluster resource list.
 
 **📸 Verification:**
+
 ![Downward PV PVC Binding](Screenshot%202026-04-16%20001521.png)
 
 ---
@@ -78,7 +85,9 @@ The deployment was configured with a hybrid approach to overcome the limitations
 * **Service Automation:** A shell script was embedded in the container command to aggregate this data into a custom `index.html`.
 
 **📸 Manifest Details:**
+
 ![Downward API YAML 1](Screenshot%202026-04-16%20002022.png)
+
 ![Downward API YAML 2](Screenshot%202026-04-16%20002055.png)
 
 ---
@@ -90,7 +99,9 @@ The success of this task was confirmed by checking the live container output, wh
 * **Final Output:** Accessing the pod revealed the correct Pod Name and Pod IP displayed in the serve file.
 
 **📸 Execution Result:**
+
 ![Downward API Verification](Screenshot%202026-04-16%20001632.png)
+
 ![Downward API Final Output](Screenshot%202026-04-16%20002501.png)
 
 ---
@@ -105,7 +116,9 @@ Two ConfigMaps were created to demonstrate different management styles in Kubern
 * **ConfigMap `trauerweide`:** Created using the imperative CLI command with literal values.
 
 **📸 Creation Verification:**
+
 ![ConfigMap YAML Creation](Screenshot%202026-04-16%20190441.png)
+
 ![Imperative ConfigMap Creation](Screenshot%202026-04-16%20190518.png)
 
 ---
@@ -117,6 +130,7 @@ A dedicated Pod was deployed to consume these ConfigMaps using two distinct meth
 * **Volume Mount:** Mounted the entire `birke` ConfigMap as a set of files under `/etc/birke`.
 
 **📸 Pod Manifest:**
+
 ![Pod1 ConfigMap YAML](Screenshot%202026-04-16%20190702.png)
 
 ---
@@ -129,4 +143,5 @@ The implementation was verified by inspecting the internal state of `pod1`.
 * **Content Test:** `cat /etc/birke/tree` correctly displayed the value `birke`.
 
 **📸 Verification Commands:**
+
 ![ConfigMap Final Validation](Screenshot%202026-04-16%20190901.png)
