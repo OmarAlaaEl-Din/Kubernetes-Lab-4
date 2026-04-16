@@ -1,6 +1,6 @@
 # Kubernetes Lab 4: Storage, Metadata & Configuration
 
-This repository contains the practical implementation of **Kubernetes Lab 4**, focusing on Persistent Storage, Node Affinity, and Data Persistence.
+This repository contains the practical implementation of **Kubernetes Lab 4**, focusing on **Persistent Storage**, **Dynamic Metadata**, and **Decoupled Configurations**.
 
 ---
 
