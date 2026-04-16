@@ -10,9 +10,9 @@ This repository contains the practical implementation of **Kubernetes Lab 4**, f
 ### 1. Host Node Preparation
 To simulate a persistent backend, we prepared the host node by creating a physical directory and the initial data file.
 
-* [cite_start]**Action:** Created directory `/mnt/data` on the host[cite: 1, 172].
-* [cite_start]**Content:** Generated `index.html` containing the full name "Omar Alaa El-Din"[cite: 3, 159].
-* [cite_start]**Permissions:** Applied `chmod 644` to ensure the web server has appropriate read access[cite: 7].
+* **Action:** Created directory `/mnt/data` on the host.
+* **Content:** Generated `index.html` containing the full name "Omar Alaa El-Din".
+* **Permissions:** Applied `chmod 644` to ensure the web server has appropriate read access.
 
 **📸 Verification:**
 
@@ -23,9 +23,9 @@ To simulate a persistent backend, we prepared the host node by creating a physic
 ### 2. Storage Infrastructure (PV & PVC)
 We utilized a Manual Storage Class to bind a specific Persistent Volume to a Claim, ensuring dedicated storage for our deployment.
 
-* [cite_start]**Persistent Volume (PV):** Named `nginx-pv` with `1Gi` capacity and `ReadWriteMany` access mode[cite: 48, 52, 54].
-* [cite_start]**Reclaim Policy:** Set to `Retain` to prevent data loss if the PVC is deleted[cite: 55].
-* [cite_start]**Binding:** Successfully bound the `nginx-pvc` to the `nginx-pv`[cite: 35, 36, 42].
+* **Persistent Volume (PV):** Named `nginx-pv` with `1Gi` capacity and `ReadWriteMany` access mode.
+* **Reclaim Policy:** Set to `Retain` to prevent data loss if the PVC is deleted.
+* **Binding:** Successfully bound the `nginx-pvc` to the `nginx-pv`.
 
 **📸 Manifest & Binding:**
 
@@ -38,9 +38,9 @@ We utilized a Manual Storage Class to bind a specific Persistent Volume to a Cla
 ### 3. Nginx Deployment & Node Affinity
 The deployment was configured to serve the mounted data with high availability across a specific target node.
 
-* [cite_start]**Scaling:** Configured with **3 replicas**[cite: 124].
-* [cite_start]**Node Scheduling:** Used `nodeName: ubuntu` to force pods onto the node where the `hostPath` exists[cite: 133].
-* [cite_start]**Volume Mounting:** Mounted the `nginx-pvc` to `/usr/share/nginx/html` inside the containers[cite: 141, 145].
+* **Scaling:** Configured with **3 replicas**.
+* **Node Scheduling:** Used `nodeName: ubuntu` to force pods onto the node where the `hostPath` exists.
+* **Volume Mounting:** Mounted the `nginx-pvc` to `/usr/share/nginx/html` inside the containers.
 
 **📸 Deployment Verification:**
 
@@ -53,8 +53,8 @@ The deployment was configured to serve the mounted data with high availability a
 ### 4. Final Solution Validation
 To verify the end-to-end flow, we accessed the running pods to confirm the persistent data was being served correctly.
 
-* [cite_start]**Test:** Executed `cat` on the `index.html` file from inside one of the replicas[cite: 154, 158].
-* [cite_start]**Result:** The pod successfully displayed the name "Omar Alaa El-Din" retrieved from the persistent host storage[cite: 159].
+* **Test:** Executed `cat` on the `index.html` file from inside one of the replicas.
+* **Result:** The pod successfully displayed the name "Omar Alaa El-Din" retrieved from the persistent host storage.
 
 **📸 Output Verification:**
 
